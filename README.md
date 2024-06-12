@@ -43,7 +43,36 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/kestra-io/kestra/de
 
 Once you are in the Kestra UI, navigate to Flows and then Editor. Copy the contents of **run_docker_container.yml**, save it, and then execute it.
 
-![image](https://github.com/agambo-kheopsys/dbt-kestra/assets/113558455/8a5c075b-2706-4b0f-bb53-a9dfa4b18793)
+### Code Explanation
+
+This YAML configuration defines a Kestra flow named `run_docker_container` within the `my_namespace` namespace. Here's what each section does:
+
+#### Tasks:
+
+##### 1. Run Docker Container
+- **ID:** `run`
+- **Type:** Docker plugin task (`io.kestra.plugin.docker.Run`)
+- **Description:** This task runs a Docker container using the image `gcr.io/kheopsys-lab/dbt-snapshot:alpha.1.4`. It sets the environment variable `DBT_PROJECT_DIR` to `/app`.
+- **Pull Policy:** `ALWAYS` to ensure the latest version of the image is used.
+
+##### 2. Outputs Metrics
+- **ID:** `outputs_metrics`
+- **Type:** Python script (`io.kestra.plugin.scripts.python.Commands`)
+- **Description:** This task executes a Python script (`outputs.py`) inside a Docker container (`python:slim` image). Before executing the script, it installs the `requests` library using `pip`. This script is responsible for generating outputs metrics.
+- **Namespace Files:** Enabled to allow access to files within the namespace.
+- **Warning on StdErr:** Disabled (`false`).
+- **Commands:** Executes the Python script (`outputs.py`).
+
+#### Triggers:
+
+###### Hourly Trigger
+- **ID:** `hourly`
+- **Type:** Schedule trigger (`io.kestra.plugin.core.trigger.Schedule`)
+- **Schedule:** Runs the flow hourly (`@hourly`).
+- 
+![image](https://github.com/agambo-kheopsys/dbt-kestra/assets/113558455/6e3edb14-b64f-40c3-854e-929cfa225c30)
+
+**Note** : You can find this implementation on : http://34.173.202.213:8080/ui/flows
 
 
 
