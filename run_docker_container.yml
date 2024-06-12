@@ -1,0 +1,13 @@
+id: run_docker_container
+namespace: my_namespace
+
+tasks:
+  - id: "run"
+    type: "io.kestra.plugin.docker.Run"
+    containerImage: "gcr.io/kheopsys-lab/dbt-snapshot:alpha.1.4"
+    env:
+      DBT_PROJECT_DIR: "/app"
+    pullPolicy: ALWAYS  # Pour s'assurer que la dernière version de l'image est utilisée
+
+
+
