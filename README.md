@@ -41,8 +41,9 @@ cd /opt/kestra/kestra
 curl -o docker-compose.yml https://raw.githubusercontent.com/kestra-io/kestra/develop/docker-compose.yml
 ```
 
-Once you are in the Kestra UI, navigate to Flows and then Editor. Copy the contents of run_docker_container.yml, save it, and then execute it.
+Once you are in the Kestra UI, navigate to Flows and then Editor. Copy the contents of **run_docker_container.yml**, save it, and then execute it.
 
+![image](https://github.com/agambo-kheopsys/dbt-kestra/assets/113558455/8a5c075b-2706-4b0f-bb53-a9dfa4b18793)
 
 
 
