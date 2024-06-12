@@ -9,5 +9,18 @@ tasks:
       DBT_PROJECT_DIR: "/app"
     pullPolicy: ALWAYS  # Pour s'assurer que la dernière version de l'image est utilisée
 
-
-
+  - id: outputs_metrics
+    type: io.kestra.plugin.scripts.python.Commands
+    namespaceFiles:
+      enabled: true
+    docker:
+       image: python:slim
+    warningOnStdErr: false
+    beforeCommands:
+      - pip install requests
+    commands:
+      - python outputs.py
+triggers :
+  - id : hourly
+    type : io.kestra.plugin.core.trigger.Schedule
+    cron :  "@hourly"
