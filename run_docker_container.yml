@@ -1,6 +1,6 @@
 id: run_docker_container
 namespace: my_namespace
-
+#/tmp/kestra-wd/tmp/5tMq4sWLWkPQCS3BydxeLy/outputs_metrics.py
 tasks:
   - id: "run"
     type: "io.kestra.plugin.docker.Run"
@@ -8,6 +8,14 @@ tasks:
     env:
       DBT_PROJECT_DIR: "/app"
     pullPolicy: ALWAYS  # Pour s'assurer que la dernière version de l'image est utilisée
+
+
+  - id: data-ingestion
+    type: io.kestra.plugin.airbyte.connections.Sync
+    connectionId: 52d1dbdf-3b3a-4956-b681-d8f617935509
+    url: http://34.70.229.77:8000
+    username: "AbdoulGambo"
+    password: "passWord" 
 
   - id: outputs_metrics
     type: io.kestra.plugin.scripts.python.Commands
@@ -20,6 +28,9 @@ tasks:
       - pip install requests
     commands:
       - python outputs.py
+
+
+
 triggers :
   - id : hourly
     type : io.kestra.plugin.core.trigger.Schedule
