@@ -75,8 +75,8 @@ Description: Cette tâche exécute une synchronisation de données à l'aide d'A
 - **Type:** Schedule trigger (`io.kestra.plugin.core.trigger.Schedule`)
 - **Schedule:** Runs the flow hourly (`@hourly`).
   
-![image](https://github.com/agambo-kheopsys/dbt-kestra/assets/113558455/6e3edb14-b64f-40c3-854e-929cfa225c30)
-![image](https://github.com/agambo-kheopsys/dbt-kestra/assets/113558455/dc2d0749-3063-4154-8e34-7ef33bef31e9)
+![image](https://github.com/agambo-kheopsys/dbt-kestra/assets/113558455/5dd9df68-0b60-4765-a176-2d9e464ba007)
+
 
 
 **Note** : You can find this implementation on : http://34.173.202.213:8080/ui/flows
