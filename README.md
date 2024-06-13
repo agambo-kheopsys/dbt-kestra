@@ -76,7 +76,8 @@ Description: Cette tâche exécute une synchronisation de données à l'aide d'A
 - **Schedule:** Runs the flow hourly (`@hourly`).
   
 ![image](https://github.com/agambo-kheopsys/dbt-kestra/assets/113558455/6e3edb14-b64f-40c3-854e-929cfa225c30)
-![Uploading image.png…]()
+![image](https://github.com/agambo-kheopsys/dbt-kestra/assets/113558455/dc2d0749-3063-4154-8e34-7ef33bef31e9)
+
 
 **Note** : You can find this implementation on : http://34.173.202.213:8080/ui/flows
 
