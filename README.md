@@ -55,7 +55,13 @@ This YAML configuration defines a Kestra flow named `run_docker_container` withi
 - **Description:** This task runs a Docker container using the image `gcr.io/kheopsys-lab/dbt-snapshot:alpha.1.4`. It sets the environment variable `DBT_PROJECT_DIR` to `/app`.
 - **Pull Policy:** `ALWAYS` to ensure the latest version of the image is used.
 
-##### 2. Outputs Metrics
+##### 2.Data Ingestion (Airbyte)
+
+ID: data-ingestion
+Type: Airbyte connection sync task (io.kestra.plugin.airbyte.connections.Sync)
+Description: Cette tâche exécute une synchronisation de données à l'aide d'Airbyte. Elle utilise l'ID de connexion fourni (52d1dbdf-3b3a-4956-b681-d8f617935509) pour se connecter à l'instance Airbyte spécifiée par l'URL (http://34.70.229.77:8000). Les informations d'identification nécessaires (nom d'utilisateur et mot de passe) sont également fournies 
+
+##### 3. Outputs Metrics
 - **ID:** `outputs_metrics`
 - **Type:** Python script (`io.kestra.plugin.scripts.python.Commands`)
 - **Description:** This task executes a Python script (`outputs.py`) inside a Docker container (`python:slim` image). Before executing the script, it installs the `requests` library using `pip`. This script is responsible for generating outputs metrics.
@@ -64,13 +70,13 @@ This YAML configuration defines a Kestra flow named `run_docker_container` withi
 - **Commands:** Executes the Python script (`outputs.py`).
 
 #### Triggers:
-
 ###### Hourly Trigger
 - **ID:** `hourly`
 - **Type:** Schedule trigger (`io.kestra.plugin.core.trigger.Schedule`)
 - **Schedule:** Runs the flow hourly (`@hourly`).
-- 
+  
 ![image](https://github.com/agambo-kheopsys/dbt-kestra/assets/113558455/6e3edb14-b64f-40c3-854e-929cfa225c30)
+![Uploading image.png…]()
 
 **Note** : You can find this implementation on : http://34.173.202.213:8080/ui/flows
 
