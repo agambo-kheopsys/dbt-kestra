@@ -13,6 +13,8 @@ Access the server via localhost:8080 or localhost:8081.
 
 For detailed installation guidance, refer to the installation guide: https://kestra.io/docs/installation/docker-compose
 
+Docker compose file initial with Local Datavase : https://github.com/kestra-io/kestra/blob/develop/docker-compose.yml
+
 ## External Database Configuration (OVH)
 If you want to connect Kestra to an external database (OVH), refer to our configuration file available in our GitHub repository: External DB Configuration.
 
