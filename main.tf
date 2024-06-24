@@ -78,3 +78,4 @@ resource "google_compute_firewall" "kestra_fw" {
 
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["ssh-server", "http-server", "https-server"]
+}
