@@ -71,6 +71,7 @@ Description: Cette tâche exécute une synchronisation de données à l'aide d'A
 - **Namespace Files:** Enabled to allow access to files within the namespace.
 - **Warning on StdErr:** Disabled (`false`).
 - **Commands:** Executes the Python script (`outputs.py`).
+**Ps** : you have to create the file to run our code .
 
 #### Triggers:
 ###### Hourly Trigger
